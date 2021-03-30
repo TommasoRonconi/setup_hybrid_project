@@ -43,19 +43,21 @@ class MesonBuild ( build_ext ) :
         env = os.environ.copy()
 
         print( 'tomi says: ', self.build_temp )
+        print( 'tomi says: ', os.path.dirname(os.path.abspath(__file__)) )
         # if not os.path.exists( self.build_temp ) :
         #     os.makedirs( self.build_temp )
 
         subprocess.check_call( [ 'meson', 'builddir' ] ) #, '='.join( '-Dprefix=', ext.sourcedir
-        subprocess.check_call( [ 'meson', 'install', '-C', 'builddir' ] )
-                                  
+        subprocess.call( [ 'meson', 'install', '-C', 'builddir' ] )
+
+cwd = os.path.dirname(os.path.abspath(__file__))
 
 setup( name='cust_pack',
        version='0.0.0',
        author='tomi',
        description='An example of hybrid C++/C/Python library installed with Meson BS',
-       packages=setuptools.find_packages( "python_sector" ),
-       package_dir={"":"python_sector"},
+       #packages=setuptools.find_packages( "python_sector" ),
+       #package_dir={"":"python_sector"},
        ext_modules=[MesonExtension('meson_ext')],
        cmdclass=dict(build_ext=MesonBuild)
 )

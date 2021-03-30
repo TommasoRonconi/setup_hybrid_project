@@ -5,7 +5,7 @@ project( 'master',
          'cpp',
          default_options : [ 'cpp_std=c++14',
                              'buildtype=debugoptimized',
-                             'prefix=' + meson.source_root() + '/install',
+                             #'prefix=' + meson.source_root() + '/install',
                              'libdir=lib' ],
          version : '0.0.0',
          license : 'SISSA' )
