@@ -5,8 +5,10 @@ project( 'master',
          'cpp',
          default_options : [ 'cpp_std=c++14',
                              'buildtype=debugoptimized',
-                             #'prefix=' + meson.source_root() + '/install',
-                             'libdir=lib' ],
+                             # 'prefix=' + meson.source_root(), # + '/install',
+                             # 'libdir=./internal'
+                             # 'libdir=' + meson.source_root() #'libdir=lib'
+         ],
          version : '0.0.0',
          license : 'SISSA' )
 
@@ -23,6 +25,7 @@ add_global_arguments( cxx_arg,
                       language : 'cpp' )
 endif
 endforeach
+message( get_option( 'prefix' ) )
 
 #######################################################################
 # External dependencies
@@ -34,7 +37,7 @@ endforeach
 #######################################################################
 # Empty list to append headers (from both C++ and C sectors)
 
-lib_headers = []
+# lib_headers = []
 
 #######################################################################
 # CPP sector
