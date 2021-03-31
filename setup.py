@@ -8,6 +8,9 @@ import pathlib
 from setuptools import setup, find_packages, Extension
 from setuptools.command.build_ext import build_ext as build_ext_orig
 
+# Method obtained modifying this:
+# https://stackoverflow.com/questions/42585210/extending-setuptools-extension-to-use-cmake-in-setup-py/48015772
+
 class MesonExtension ( Extension ) :
     def __init__ ( self, name ) :
         super().__init__( name, sources = [] )
