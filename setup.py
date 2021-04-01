@@ -30,7 +30,8 @@ class build_ext( build_ext_orig ) :
         extdir = pathlib.Path( self.get_ext_fullpath( ext.name ) )
         extdir.mkdir( parents = True, exist_ok = True )
         meson_args = [ '-Dprefix=' + str( extdir.parent.absolute() ),
-                       '-Dlibdir=./internal']
+                       '-Dlibdir=./internal',
+                       '-Dfull-build=false' ]
 
         os.chdir( str( build_temp ) )
         self.spawn( [ 'meson', str( cwd ) ] + meson_args )
