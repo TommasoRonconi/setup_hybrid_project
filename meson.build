@@ -6,7 +6,7 @@ project( 'master',
          default_options : [ 'cpp_std=c++14',
                              'buildtype=debugoptimized',
                              # 'prefix=' + meson.source_root(), # + '/install',
-                             'libdir=./lib'
+                             'libdir=lib'
                              # 'libdir=' + meson.source_root() #'libdir=lib'
          ],
          version : '0.0.0',
