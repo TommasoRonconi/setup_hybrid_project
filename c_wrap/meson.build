@@ -30,12 +30,14 @@ custom_pack_c_path = '/'.join( [ get_option( 'prefix' ),
                                  get_option( 'libdir' ),
                                  custom_pack_c_lib_name ] )
 
-# lib_headers += [ root_c + '/' + inc_dir + '/c_custom_pack.h' ]
+if get_option( 'full-build' )
+lib_headers += [ root_c + '/' + inc_dir + '/c_custom_pack.h' ]
 
 
 #######################################################################
 # Further installation commands
 
-# install_headers( lib_headers )
+install_headers( lib_headers )
+endif
 
 #######################################################################

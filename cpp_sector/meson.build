@@ -22,12 +22,13 @@ custom_pack_lib = library( 'custom_pack',
 custom_pack_dep = declare_dependency( link_with : custom_pack_lib,
                                       include_directories : inc_custom_pack )
 
-# lib_headers += [ root_cpp + '/' + inc_dir + '/custom_pack.h' ]
-
+if get_option( 'full-build' )
+lib_headers += [ root_cpp + '/' + inc_dir + '/custom_pack.h' ]
 
 #######################################################################
 # Further installation commands
 
-# install_headers( lib_headers )
+install_headers( lib_headers )
+endif
 
 #######################################################################

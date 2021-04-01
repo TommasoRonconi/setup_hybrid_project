@@ -1,26 +1,34 @@
 #######################################################################
 # Python wrapping
 
-# pymod = import( 'python' )
-# py = pymod.find_installation()
-# message( py.get_install_dir() )
+if get_option( 'full-build' )
+pymod = import( 'python' )
+py = pymod.find_installation()
+message( ' '.join( [ 'Installing python sector in', py.get_install_dir() ] ) )
+endif
 
 conf_data = configuration_data()
-# conf_data.set( 'CUSTOM_PACK_WRAP', custom_pack_c_path )
+if get_option( 'full-build' )
+conf_data.set( 'CUSTOM_PACK_WRAP', custom_pack_c_path )
+wrapdir = py.get_install_dir() + 'custpy/internal/'
+else
 conf_data.set( 'CUSTOM_PACK_WRAP', custom_pack_c_lib_name )
+wrapdir = get_option( 'libdir' )
+endif
 
 configure_file( output : 'cwrap.py',
                 input : 'cwrap.py.in',
                 configuration : conf_data,
                 install : true,
-                install_dir : get_option( 'libdir' ) )
-                # install_dir : py.get_install_dir() + 'custpy/internal/' )
+                install_dir : wrapdir )
 
-# py.install_sources( [ 'custpy/__init__.py',
-#                       'custpy/cust.py' ],
-#                     subdir : 'custpy' )
+if get_option( 'full-build' )
+py.install_sources( [ 'custpy/__init__.py',
+                      'custpy/cust.py' ],
+                    subdir : 'custpy' )
 
-# py.install_sources( [ 'custpy/internal/__init__.py' ],
-#                     subdir : 'custpy/internal' )
+py.install_sources( [ 'custpy/internal/__init__.py' ],
+                    subdir : 'custpy/internal' )
+endif
 
 #######################################################################

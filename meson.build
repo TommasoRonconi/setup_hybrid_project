@@ -6,7 +6,7 @@ project( 'master',
          default_options : [ 'cpp_std=c++14',
                              'buildtype=debugoptimized',
                              # 'prefix=' + meson.source_root(), # + '/install',
-                             # 'libdir=./internal'
+                             'libdir=./lib'
                              # 'libdir=' + meson.source_root() #'libdir=lib'
          ],
          version : '0.0.0',
@@ -25,7 +25,7 @@ add_global_arguments( cxx_arg,
                       language : 'cpp' )
 endif
 endforeach
-message( get_option( 'prefix' ) )
+message( ' '.join( [ 'from meson tomi says prefix is:', get_option( 'prefix' ) ] ) )
 
 #######################################################################
 # External dependencies
@@ -37,7 +37,9 @@ message( get_option( 'prefix' ) )
 #######################################################################
 # Empty list to append headers (from both C++ and C sectors)
 
-# lib_headers = []
+if get_option( 'full-build' )
+         lib_headers = []
+endif
 
 #######################################################################
 # CPP sector
