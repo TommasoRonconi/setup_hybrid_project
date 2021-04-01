@@ -1,6 +1,5 @@
 import setuptools
 import os
-import re
 import sys
 import subprocess
 import pathlib
@@ -12,6 +11,8 @@ from distutils.command.build import build as build_orig
 
 # Method obtained modifying this:
 # https://stackoverflow.com/questions/42585210/extending-setuptools-extension-to-use-cmake-in-setup-py/48015772
+# and this
+# https://stackoverflow.com/questions/46333210/how-to-include-script-built-libraries-with-package-installation
 
 # class install ( install_orig ) :
 
@@ -39,8 +40,6 @@ class build ( build_orig ) :
 
         build_temp = pathlib.Path( self.build_temp )
         build_temp.mkdir( parents = True, exist_ok = True )
-        # extdir = pathlib.Path( self.get_ext_fullpath( ext.name ) )
-        # extdir.mkdir( parents = True, exist_ok = True )
         meson_args = [ '-Dprefix=' + sys.prefix ]
 
         os.chdir( str( build_temp ) )
