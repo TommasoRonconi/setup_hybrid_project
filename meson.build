@@ -5,6 +5,7 @@ project( 'master',
          'cpp',
          default_options : [ 'cpp_std=c++14',
                              'buildtype=debugoptimized',
+                             'warning_level=3',
                              # 'prefix=' + meson.source_root(), # + '/install',
                              'libdir=lib'
                              # 'libdir=' + meson.source_root() #'libdir=lib'
@@ -19,12 +20,12 @@ cxx = meson.get_compiler( 'cpp' )
 cxx_args = [ '-Wall',
              '-Wextra' ] #, '-fopenmp'
 
-foreach cxx_arg : cxx_args
-if cxx.has_argument( cxx_arg ) 
-add_global_arguments( cxx_arg,
-                      language : 'cpp' )
-endif
-endforeach
+# foreach cxx_arg : cxx_args
+# if cxx.has_argument( cxx_arg ) 
+# add_global_arguments( cxx_arg,
+#                       language : 'cpp' )
+# endif
+# endforeach
 message( ' '.join( [ 'from meson tomi says prefix is:', get_option( 'prefix' ) ] ) )
 
 #######################################################################
