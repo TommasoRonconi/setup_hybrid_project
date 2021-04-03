@@ -20,7 +20,8 @@ custom_pack_c_lib = library( 'c_custom_pack',
                              dependencies : [ custom_pack_dep ],
                              install : true )
 
-custom_pack_c_dep = declare_dependency( link_with : custom_pack_c_lib,
+custom_pack_c_dep = declare_dependency( link_with : [ custom_pack_c_lib,
+                                                      custom_pack_lib ],
                                         include_directories : [ inc_custom_pack,
                                                                 inc_c_custom_pack ] )
 

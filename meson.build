@@ -11,7 +11,7 @@ project( 'master',
                              # 'libdir=' + meson.source_root() #'libdir=lib'
          ],
          version : '0.0.0',
-         license : 'SISSA' )
+         license : 'GNU-GPL3' )
 
 root = meson.source_root()
 
