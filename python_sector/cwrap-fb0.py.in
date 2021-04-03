@@ -1,0 +1,10 @@
+from ctypes import *
+import os 
+
+lib_cust = CDLL( os.path.dirname( os.path.abspath( __file__ ) ) + '/@CUSTOM_PACK_WRAP@')
+
+lib_cust.c_func1.argtypes = [ c_float, c_float ]
+lib_cust.c_func1.restype  = c_void_p
+
+lib_cust.c_func2.argtypes = [ c_double ]
+lib_cust.c_func2.restype  = c_double
