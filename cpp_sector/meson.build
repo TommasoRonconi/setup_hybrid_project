@@ -17,7 +17,8 @@ custom_pack_lib = library( 'custom_pack',
                            [ 'src/custom_pack.cpp' ],
        	 	           include_directories : [ inc_custom_pack ],
 		           dependencies : [],
-                           install : true  )
+                           install : true,
+                           install_dir : libdir )
 
 custom_pack_dep = declare_dependency( link_with : custom_pack_lib,
                                       include_directories : inc_custom_pack )

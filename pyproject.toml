@@ -6,7 +6,7 @@ build-backend = "mesonpep517.buildapi"
 author = "Tommaso Ronconi"
 author-email = "tronconi@sissa.it"
 description = "An example of hybrid C++/C/Python library installed with Meson BS"
-# readme = "readme.rst"
+description-file = "readme.rst"
 # repository = "https://github.com/TommasoRonconi/setup_hybrid_project"
 summary = "If this works I'm happy"
 
@@ -24,3 +24,5 @@ module = "custpy"
 
 # requires = [ "numpy", "gsl>2", ]
 requires-python = ">=3.6"
+
+meson-options = [ "-Dfull-build=false" ]
