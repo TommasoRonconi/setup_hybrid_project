@@ -1,7 +1,7 @@
 #######################################################################
 # Global project info
 
-project( 'master',
+project( 'custpy',
          'cpp',
          default_options : [ 'cpp_std=c++14',
                              'buildtype=debugoptimized',
