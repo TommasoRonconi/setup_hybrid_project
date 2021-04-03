@@ -8,7 +8,7 @@ conf_data.set( 'CUSTOM_PACK_WRAP', custom_pack_c_path )
 wrapdir = '/'.join( [ py.get_install_dir(), 'custpy', 'internal' ] )
 else
 infile = 'cwrap-fb0.py.in'
-conf_data.set( 'CUSTOM_PACK_WRAP', './' + custom_pack_c_lib_name )
+conf_data.set( 'CUSTOM_PACK_WRAP', '/' + custom_pack_c_lib_name )
 wrapdir = libdir
 endif
 
