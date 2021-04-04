@@ -2,6 +2,7 @@
 # Python wrapping
 
 conf_data = configuration_data()
+
 if get_option( 'full-build' )
 infile = 'cwrap-fb1.py.in'
 conf_data.set( 'CUSTOM_PACK_WRAP', custom_pack_c_path )

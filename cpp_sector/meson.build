@@ -14,7 +14,6 @@ inc_custom_pack = include_directories( inc_dir )
 # SFH Lib
 
 if get_option( 'full-build' )
-
 custom_pack_lib = library( 'custom_pack',
                            [ 'src/custom_pack.cpp' ],
        	 	           include_directories : [ inc_custom_pack ],
@@ -22,9 +21,7 @@ custom_pack_lib = library( 'custom_pack',
                            install : true,
                            install_dir : libdir )
 lib_headers += [ root_cpp + '/' + inc_dir + '/custom_pack.h' ]
-
 else
-
 custom_pack_lib = static_library( 'custom_pack',
                                   [ 'src/custom_pack.cpp' ],
        	 	                  include_directories : [ inc_custom_pack ],
