@@ -11,11 +11,11 @@ inc_dir = 'include'
 inc_custom_pack = include_directories( inc_dir )
 
 #######################################################################
-# SFH Lib
+# CUSTOM_PACK Lib
 
 if get_option( 'full-build' )
 custom_pack_lib = library( 'custom_pack',
-                           [ 'src/custom_pack.cpp' ],
+                           [ 'src/custom_pack.cpp' ], 
        	 	           include_directories : [ inc_custom_pack ],
 		           dependencies : [],
                            install : true,
