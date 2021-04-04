@@ -22,7 +22,7 @@ classifiers = [
 
 module = "custpy"
 
-# requires = [ "numpy", "gsl>2", ]
+# requires = [ "numpy", "gsl>2", "mesonpep517", "meson<0.57" ]
 requires-python = ">=3.6"
 
 meson-options = [ "-Dfull-build=false" ]
