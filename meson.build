@@ -27,7 +27,7 @@ endif
 # Empty list to append headers (from both C++ and C sectors)
 
 if get_option( 'full-build' )
-         lib_headers = []
+lib_headers = []
 endif
 
 #######################################################################
@@ -39,6 +39,13 @@ subdir( 'cpp_sector' )
 # C bridge
 
 subdir( 'c_wrap' )
+
+#######################################################################
+# Further installation commands
+
+if get_option( 'full-build' )
+install_headers( lib_headers )
+endif
 
 #######################################################################
 # Python module

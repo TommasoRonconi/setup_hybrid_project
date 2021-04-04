@@ -34,10 +34,3 @@ custom_pack_dep = declare_dependency( link_with : custom_pack_lib,
                                       include_directories : inc_custom_pack )
 
 #######################################################################
-# Further installation commands
-
-if get_option( 'full-build' )
-install_headers( lib_headers )
-endif
-
-#######################################################################
