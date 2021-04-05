@@ -31,7 +31,7 @@ This is based on :code:`mesonpep517`, following `this link <https://thiblahute.g
 The two main features are
 
 - toml file for configuring the packaging
-- the libraries are made static (for the c++ sector) and dynamic (for the c-wrap). In this way when importing the CTypes-using sub-module (`custpy/internal/cwrap.py`_) the system does not have to use the linker to search for shared objects.
+- the libraries are made static (for the c++ sector) and dynamic (for the c-wrap). In this way when importing the CTypes-using sub-module (`custpy/internal/cwrap.py <custpy/internal/cwrap.py.in>`_) the system does not have to use the linker to search for shared objects.
 
 This is not the best possible solution but it is working.
 
@@ -41,15 +41,17 @@ Install
 Install by either
 
 .. code::
-   > meson builddir
-   > meson install -C builddir
+
+   meson builddir
+   meson install -C builddir
 
 or
 
 .. code::
-   > pip install .
 
-The former assumes the custom boolean build option (defined in `meson_options.txt`_) :code:`full-build` to evalueate :code:`true`.
+   pip install .
+
+The former assumes the custom boolean build option (defined in `meson_options.txt <meson_options.txt>`_) :code:`full-build` to evalueate :code:`true`.
 A ``classic'' installation is performed.
 The latter instead sets :code:`full-build=false` (see the toml configuration file) and thus almost everything is built static inside the :code:`internal` sub-package.
 
@@ -59,19 +61,22 @@ Upload to PyPI
 First create a distribution: from the root directory run
 
 .. code::
-   > python3 -m pep517.build .
+
+   python3 -m pep517.build .
 
 This will add a tarball and a sha256 file to the :code:`dist/` sub-directory.
 
 Then use :code:`twine` to publish the package:
 
 .. code::
-   > twine upload dist/*
+
+   twine upload dist/*
 
 To upload a new release you should first remove the previous one:
 
 .. code::
-   > rm dist/* && python3 -m pep517.build && twine upload dist/*
+
+   rm dist/* && python3 -m pep517.build && twine upload dist/*
 
 
    
