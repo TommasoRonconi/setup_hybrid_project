@@ -31,7 +31,7 @@ This is based on :code:`mesonpep517`, following `this link <https://thiblahute.g
 The two main features are
 
 - toml file for configuring the packaging
-- the libraries are made static (for the c++ sector) and dynamic (for the c-wrap). In this way when importing the CTypes-using sub-module (`custpy/internal/cwrap.py <custpy/internal/cwrap.py.in>`_) the system does not have to use the linker to search for shared objects.
+- the libraries are made static (for the c++ sector) and dynamic (for the c-wrap). In this way when importing the CTypes-using sub-module (:code:`custpy/internal/cwrap.py` which is obtained by configuring either `cwrap-fb0.py.in <python_sector/cwrap-fb0.py.in>`_ or `cwrap-fb1.py.in <python_sector/cwrap-fb1.py.in>`_) the system does not have to use the linker to search for shared objects.
 
 This is not the best possible solution but it is working.
 
